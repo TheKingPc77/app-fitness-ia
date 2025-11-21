@@ -5,6 +5,7 @@ import Script from "next/script";
 import "./globals.css";
 // Import all available fonts for AI usage
 import "../lib/fonts";
+import { Navbar } from "@/components/layout/navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FitTracker Pro - Seu Personal Trainer Inteligente",
+  title: "FitAI - Seu Personal Trainer Inteligente",
   description: "Aplicativo de fitness com IA para treinos personalizados, dietas adaptadas e acompanhamento de progresso.",
 };
 
@@ -34,7 +35,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <Navbar />
+        <main className="min-h-screen bg-background">
+          {children}
+        </main>
       </body>
     </html>
   );
